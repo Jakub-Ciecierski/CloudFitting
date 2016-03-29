@@ -26,7 +26,7 @@ public:
 
     ~FittingWorkshop();
 
-    void startExperiment();
+    void startExperiment(unsigned int i);
 };
 
 

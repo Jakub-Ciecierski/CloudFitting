@@ -415,7 +415,13 @@ void GLWidget::moveObject(const SceneID& id, glm::vec3& pos){
 }
 
 void GLWidget::startFitting(){
-    fittingWorkshop->startExperiment();
+    std::string title = "Fitting";
+    std::string text = "Input Cloud index [0:4]";
+    std::string expIndex = EditorWindow::getInstance().showInputBox(title,
+                                                                    text);
+    int index = atoi(expIndex.c_str());
+
+    fittingWorkshop->startExperiment(index);
 }
 
 #include "moc_glwidget.cpp"

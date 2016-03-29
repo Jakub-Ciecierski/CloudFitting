@@ -56,7 +56,8 @@ void FittingWorkshop::createClouds(){
 //  PUBLIC 
 //-----------------------//
 
-void FittingWorkshop::startExperiment(){
-    CloudFitter cloudFitter(clouds[0], sphere);
+void FittingWorkshop::startExperiment(unsigned int i){
+    if(i > clouds.size() - 1) return;
+    CloudFitter cloudFitter(clouds[i], sphere);
     cloudFitter.startFitting();
 }
