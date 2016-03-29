@@ -41,16 +41,36 @@ double CloudFitness::computeGoalFunction(Cloud* cloud, RigidBody* rigidBody){
     for(auto worldVertex : worldVertices){
         vec3 vertex(worldVertex.x, worldVertex.y, worldVertex.z);
         vec3 clostestPoint = rigidBody->getClosestPoint(vertex);
+/*
+        std::cout << "Vertex: " << std::endl;
+        printvec3(vertex);
+        std::cout << "Closest Point: " << std::endl;
+        printvec3(clostestPoint);
+*/
+        double distance = gm::euclideanDistance(clostestPoint, vertex);
+        sumOfDistances += distance;
 
-        sumOfDistances += gm::euclideanDistance(clostestPoint, vertex);
+        //std::cout << "Distance: " << distance << std::endl << std::endl;
+
     }
 
     // TODO compute sumOfNormals
 
-    double fitness = (distancesWeight * sumOfDistances) +
+    double goalValue = (distancesWeight * sumOfDistances) +
             (normalAnglesWeight * sumOfNormals);
+/*
+    double fitness;
+    double epsilon = 0.0001;
+    if(goalValue < 1) {
+        goalValue = 1;
+    }
 
-    return fitness;
+    fitness = 1.0f / goalValue;
+*/
+    //std::cout << "GoalValue:    " << goalValue << std::endl;
+    //std::cout << "FitnessValue: " << fitness << std::endl << std::endl;
+
+    return goalValue;
 }
 
 //-----------------------//
@@ -65,8 +85,10 @@ double CloudFitness::fitnessValue(const pso::Particle &p) {
 
     tmpCloud.moveTo(tv->x, tv->y, tv->z);
     tmpCloud.rotateTo(tv->xAngle, tv->yAngle, tv->zAngle);
+    tmpCloud.update();
 
     double fitness = computeGoalFunction(&tmpCloud, rigidBody);
 
+    delete tv;
     return fitness;
 }

@@ -35,7 +35,7 @@ void FitnessUpdater::update(int startIndex, int finishIndex) {
         double fitnessValue = this->fitnessValue(p);
         p.setFitness(fitnessValue);
 
-        if(fitnessValue > p.getBestFitness()){
+        if(fitnessValue < p.getBestFitness()){
             p.saveCurrentConfigAsBest();
         }
     }

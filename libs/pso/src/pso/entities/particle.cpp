@@ -19,8 +19,8 @@ Particle::Particle(double posIntervalMin, double posIntervalMax,
                 maxVelocity(maxVelocity),
                 position(position), velocity(velocity),
                 pbest(position), lbest(position){
-    fitness = 0;
-    bestFitness = 0;
+    fitness = 99999;
+    bestFitness = 99999;
 }
 
 Particle::~Particle() {

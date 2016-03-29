@@ -48,6 +48,8 @@ GLWidget::GLWidget(QWidget* parent) :
 GLWidget::~GLWidget(){
     delete renderer;
     delete ray;
+
+    delete fittingWorkshop;
 }
 
 void GLWidget::setupRenderer(){
@@ -62,26 +64,10 @@ void GLWidget::setupRenderer(){
 
     ray = new RayCast(fpsCamera);
 
-
-/*
-    Torus* t = new Torus(0.4, 0.3, 100, 100);
-    Torus* tt = new Torus(0.2, 0.1);
-    Torus* tt1 = new Torus(0.2, 0.1);
-    Torus* tt2 = new Torus(0.2, 0.1);
-    Torus* tt3 = new Torus(0.2, 0.1);
-    t->move(0,0,5);
-    tt->move(5,0,5);
-    tt1->move(4,5,5);
-    tt2->move(0,5,0);
-    tt3->move(5,0,0);
-    scene->addRenderObject(t);
-    scene->addRenderObject(tt);
-    scene->addRenderObject(tt1);
-    scene->addRenderObject(tt2);
-    scene->addRenderObject(tt3);
-*/
-
     renderer = new Renderer(scene);
+
+    fittingWorkshop = new FittingWorkshop(scene);
+
 }
 
 void GLWidget::setupFocusPolicy(){
@@ -426,6 +412,10 @@ void GLWidget::moveObject(const SceneID& id, glm::vec3& pos){
     RenderBody* body = scene->getRenderBody(id);
 
     body->moveTo(pos);
+}
+
+void GLWidget::startFitting(){
+    fittingWorkshop->startExperiment();
 }
 
 #include "moc_glwidget.cpp"

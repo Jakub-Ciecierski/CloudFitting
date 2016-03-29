@@ -9,6 +9,7 @@
 
 #include <vector>
 
+#include <fitting/fitting_workshop.h>
 #include <gm/rendering/ray_cast.h>
 #include <gm/rendering/renderer.h>
 #include <gm/scene/scene.h>
@@ -20,6 +21,8 @@ private:
     RayCast* ray;
     Renderer* renderer;
     Scene* scene;
+
+    FittingWorkshop* fittingWorkshop;
 
     QTimer timer;
 
@@ -68,6 +71,8 @@ public slots:
     void rightEyeColorPicker();
 
     void moveObject(const SceneID& id, glm::vec3& pos);
+
+    void startFitting();
 
 signals:
 };

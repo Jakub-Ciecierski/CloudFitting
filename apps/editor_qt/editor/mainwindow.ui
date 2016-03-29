@@ -1238,8 +1238,15 @@ QMenu::separator {
     <addaction name="menuColors"/>
     <addaction name="menuCross"/>
    </widget>
+   <widget class="QMenu" name="menuRun">
+    <property name="title">
+     <string>Run</string>
+    </property>
+    <addaction name="actionRun_Fitting"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
+   <addaction name="menuRun"/>
   </widget>
   <action name="actionLeft_Eye_Color">
    <property name="text">
@@ -1291,6 +1298,11 @@ QMenu::separator {
     <string>Hide</string>
    </property>
   </action>
+  <action name="actionRun_Fitting">
+   <property name="text">
+    <string>Run Fitting</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -1307,6 +1319,7 @@ QMenu::separator {
     <slot>set3DDistance(QString)</slot>
     <slot>leftEyeColorPicker()</slot>
     <slot>rightEyeColorPicker()</slot>
+    <slot>startFitting()</slot>
    </slots>
   </customwidget>
   <customwidget>
@@ -1383,6 +1396,22 @@ QMenu::separator {
     <hint type="destinationlabel">
      <x>308</x>
      <y>359</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionRun_Fitting</sender>
+   <signal>triggered()</signal>
+   <receiver>glRendererWidget</receiver>
+   <slot>startFitting()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>366</x>
+     <y>415</y>
     </hint>
    </hints>
   </connection>

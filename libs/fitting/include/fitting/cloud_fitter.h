@@ -16,9 +16,11 @@ private:
 
 public:
 
-    CloudFitter(RigidBody* rigidBody, Cloud* cloud);
+    CloudFitter(Cloud* cloud, RigidBody* rigidBody);
 
     ~CloudFitter();
+
+    void startFitting();
 
 };
 

@@ -63,6 +63,12 @@ float Cloud::intersect(const RayCast &ray) {
 }
 
 const std::vector<glm::vec4>& Cloud::getWorldVertices(){
+    const mat4& ModelMatrix = getModelMatrix();
+
+    for(unsigned int i = 0; i < vertices.size(); i++){
+        worldVertices[i] = ModelMatrix * vertices[i];
+    }
+
     return this->worldVertices;
 }
 

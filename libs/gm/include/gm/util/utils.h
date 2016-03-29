@@ -17,6 +17,8 @@ namespace gm {
     float dot(const glm::vec3 &v1, const glm::vec3 &v2);
 
     float euclideanDistance(const glm::vec3& v1, const glm::vec3& v2);
+
+    float length(const glm::vec3& v);
 }
 
 #endif //MG1_UTILS_H

@@ -4,6 +4,7 @@
 
 #include <gm/rendering/render_bodies/primitivies/sphere.h>
 #include <math/random.h>
+#include <gm/util/utils.h>
 
 
 using namespace glm;
@@ -120,5 +121,12 @@ float Sphere::intersect(const RayCast & ray){
 }
 
 vec3 Sphere::getClosestPoint(const vec3 point){
-    return vec3(0,0,0);
+    const vec3& c = getPosition();
+
+    vec3 diff = point - c;
+    float m = radius / gm::length(diff);
+
+    vec3 closestPoint = c + m*diff;
+
+    return closestPoint;
 }

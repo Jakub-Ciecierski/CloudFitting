@@ -257,14 +257,14 @@ bool PSO::updateBestParticle(){
 
     for(unsigned int i = 0; i < swarmSize; i++){
         if((*particles)[i]->getBestFitness()
-           > currentGenerationBestParticle->getBestFitness()){
+           < currentGenerationBestParticle->getBestFitness()){
             currentGenerationBestParticle = (*particles)[i];
             hasChanged = true;
         }
     }
 
     if(currentGenerationBestParticle->getBestFitness()
-       >= globalBestParticle.getBestFitness()) {
+       <= globalBestParticle.getBestFitness()) {
         globalBestParticle = *currentGenerationBestParticle;
     }
 
@@ -300,7 +300,7 @@ void PSO::resetCurrentGenerationParticles() {
         particle->setPbest(position);
         particle->setLbest(position);
 
-        particle->setBestFitness(0);
+        particle->setBestFitness(99999);
 
     }
 }

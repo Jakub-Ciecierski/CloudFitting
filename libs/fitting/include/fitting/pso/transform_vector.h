@@ -7,6 +7,7 @@
 
 
 #include <pso/pso_object.h>
+#include <gm/rigid_body.h>
 
 class TransformVector : public pso::PSOObject{
 private:
@@ -24,6 +25,8 @@ public:
                     float xAngle, float yAngle, float zAngle);
 
     ~TransformVector();
+
+    void transform(RigidBody* rigidBody);
 
 };
 

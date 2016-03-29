@@ -51,7 +51,7 @@ PSOObject* CloudDecoder::decodeCurrent(const Particle & p) const{
 }
 
 pso::PSOObject *CloudDecoder::decodePBest(const Particle &p) const {
-    const PointDouble& position = p.getPosition();
+    const PointDouble& position = p.getPbest();
 
     return this->decodePosition(position);
 }
