@@ -416,7 +416,7 @@ void GLWidget::moveObject(const SceneID& id, glm::vec3& pos){
 
 void GLWidget::startFitting(){
     std::string title = "Fitting";
-    std::string text = "Input Cloud index [0:4]";
+    std::string text = "Input Cloud index [0:3]";
     std::string expIndex = EditorWindow::getInstance().showInputBox(title,
                                                                     text);
     int index = atoi(expIndex.c_str());
