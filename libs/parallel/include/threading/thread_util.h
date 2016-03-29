@@ -23,6 +23,8 @@ namespace threading
      * Used to measures how many threads should be activated
      */
     int getNumberOfCores();
+
+    void threadSleep(int seconds);
 }
 
 

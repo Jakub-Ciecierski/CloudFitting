@@ -2,6 +2,7 @@
 #define GLWIDGET_H
 
 #include "editor_window.h"
+#include "fitter_thread.h"
 #include <QObject>
 #include <QGLWidget>
 #include <QTimer>
@@ -23,6 +24,7 @@ private:
     Scene* scene;
 
     FittingWorkshop* fittingWorkshop;
+    FitterThread* fitterThread;
 
     QTimer timer;
 

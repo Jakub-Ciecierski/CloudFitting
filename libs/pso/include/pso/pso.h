@@ -48,7 +48,7 @@ private:
 
     InfoPrinter* infoPrinter;
 
-    const int noFitnessUpdateInARowCountBeforeReset = 300;
+    const int noFitnessUpdateInARowCountBeforeReset = 99999;
 
     //-----------------------------------------------------------//
     //  PRIVATE METHODS

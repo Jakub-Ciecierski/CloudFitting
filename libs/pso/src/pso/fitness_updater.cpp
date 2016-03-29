@@ -29,6 +29,10 @@ const ParticleShPtr_Vector& FitnessUpdater::getParticles() const {
     return *(particles.get());
 }
 
+void FitnessUpdater::actOn(Particle& particle){
+
+}
+
 void FitnessUpdater::update(int startIndex, int finishIndex) {
     for(int i = startIndex; i <= finishIndex; i++){
         Particle& p = *((*particles)[i]);

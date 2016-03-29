@@ -41,6 +41,12 @@ void FittingWorkshop::createClouds(){
     cloud3->move(-1.5, 0.0, -1.5);
     cloud4->move(-1.5, 0.0, 1.5);
 
+    Color c(0.8,0,0);
+    cloud1->setColor(c);
+    cloud2->setColor(c);
+    cloud3->setColor(c);
+    cloud4->setColor(c);
+
     scene->addRenderObject(cloud1);
     scene->addRenderObject(cloud2);
     scene->addRenderObject(cloud3);

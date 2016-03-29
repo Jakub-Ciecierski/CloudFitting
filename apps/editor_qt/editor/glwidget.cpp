@@ -50,6 +50,7 @@ GLWidget::~GLWidget(){
     delete ray;
 
     delete fittingWorkshop;
+    delete fitterThread;
 }
 
 void GLWidget::setupRenderer(){
@@ -67,6 +68,7 @@ void GLWidget::setupRenderer(){
     renderer = new Renderer(scene);
 
     fittingWorkshop = new FittingWorkshop(scene);
+    fitterThread = new FitterThread(fittingWorkshop);
 
 }
 
@@ -421,7 +423,8 @@ void GLWidget::startFitting(){
                                                                     text);
     int index = atoi(expIndex.c_str());
 
-    fittingWorkshop->startExperiment(index);
+    fitterThread->experimentIndex = index;
+    fitterThread->start();
 }
 
 #include "moc_glwidget.cpp"

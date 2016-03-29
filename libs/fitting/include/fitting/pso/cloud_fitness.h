@@ -33,6 +33,7 @@ public:
 
     virtual ~CloudFitness();
 
+    void actOn(pso::Particle& particle) override;
 };
 
 

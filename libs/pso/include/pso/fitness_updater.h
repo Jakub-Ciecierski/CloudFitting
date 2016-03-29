@@ -52,8 +52,9 @@ public:
     //-----------------------------------------------------------//
 
     const ParticleDecoder & getParticleDecoder() const;
-
     const ParticleShPtr_Vector& getParticles() const;
+
+    virtual void actOn(Particle& particle);
 
     /*
      * Updates the particles from startIndex to finishIndex

@@ -170,10 +170,15 @@ void PSO::computeGlobalBest(thread_argv *targs){
 
     if(targs->tid == threading::T_BOSS) {
         targs->newBestParticleUpdated = this->updateBestParticle();
+
         if(!(targs->newBestParticleUpdated))
             targs->noFitnessUpdateInARowCount++;
-        else
+        else{
             targs->noFitnessUpdateInARowCount = 0;
+
+            this->fitnessUpdater->actOn(this->globalBestParticle);
+        }
+
     }
 }
 

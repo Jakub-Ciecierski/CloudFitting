@@ -33,7 +33,8 @@ SOURCES += glwidget.cpp \
     context_menus/factories/objects_cmenu_factory.cpp \
     context_menus/factories/scene_cmenu_factory.cpp \
     widgets/scene_list/scene_tree.cpp \
-    widgets/objects_list/objects_tree.cpp
+    widgets/objects_list/objects_tree.cpp \
+    fitter_thread.cpp
 
 HEADERS  += glwidget.h \
     controls.h \
@@ -48,7 +49,8 @@ HEADERS  += glwidget.h \
     context_menus/factories/scene_cmenu_factory.h \
     context_menus/factories/objects_cmenu_factory.h \
     widgets/scene_list/scene_tree.h \
-    widgets/objects_list/objects_tree.h
+    widgets/objects_list/objects_tree.h \
+    fitter_thread.h
 
 FORMS    += mainwindow.ui
 

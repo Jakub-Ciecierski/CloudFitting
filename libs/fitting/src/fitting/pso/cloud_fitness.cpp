@@ -7,6 +7,7 @@
 #include <fitting/pso/cloud_fitness.h>
 #include <fitting/pso/transform_vector.h>
 #include <gm/util/utils.h>
+#include <threading/thread_util.h>
 
 using namespace pso;
 using namespace std;
@@ -41,34 +42,15 @@ double CloudFitness::computeGoalFunction(Cloud* cloud, RigidBody* rigidBody){
     for(auto worldVertex : worldVertices){
         vec3 vertex(worldVertex.x, worldVertex.y, worldVertex.z);
         vec3 clostestPoint = rigidBody->getClosestPoint(vertex);
-/*
-        std::cout << "Vertex: " << std::endl;
-        printvec3(vertex);
-        std::cout << "Closest Point: " << std::endl;
-        printvec3(clostestPoint);
-*/
+
         double distance = gm::euclideanDistance(clostestPoint, vertex);
         sumOfDistances += distance;
-
-        //std::cout << "Distance: " << distance << std::endl << std::endl;
-
     }
 
     // TODO compute sumOfNormals
 
     double goalValue = (distancesWeight * sumOfDistances) +
             (normalAnglesWeight * sumOfNormals);
-/*
-    double fitness;
-    double epsilon = 0.0001;
-    if(goalValue < 1) {
-        goalValue = 1;
-    }
-
-    fitness = 1.0f / goalValue;
-*/
-    //std::cout << "GoalValue:    " << goalValue << std::endl;
-    //std::cout << "FitnessValue: " << fitness << std::endl << std::endl;
 
     return goalValue;
 }
@@ -91,4 +73,16 @@ double CloudFitness::fitnessValue(const pso::Particle &p) {
 
     delete tv;
     return fitness;
+}
+
+//-----------------------//
+//  PUBLIC
+//-----------------------//
+
+
+void CloudFitness::actOn(Particle& particle){
+    TransformVector* tv =
+            (TransformVector*)this->particleDecoder->decodeCurrent(particle);
+    tv->transform(cloud);
+    threading::threadSleep(1);
 }

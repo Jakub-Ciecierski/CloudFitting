@@ -24,8 +24,6 @@ TransformVector::~TransformVector() {
 }
 
 void TransformVector::transform(RigidBody* rigidBody){
-    std::cout << "Transforming to: " << x << ", " << y << ", " << z <<
-            std::endl;
     rigidBody->moveTo(x, y, z);
     rigidBody->rotateTo(xAngle, yAngle, zAngle);
 }
