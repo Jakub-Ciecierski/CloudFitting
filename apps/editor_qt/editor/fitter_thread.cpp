@@ -1,5 +1,6 @@
 #include "fitter_thread.h"
-#include "editor_window.h"
+
+#include <QMessageBox>
 
 FitterThread::FitterThread(FittingWorkshop* fittingWorkshop) :
     fittingWorkshop(fittingWorkshop){

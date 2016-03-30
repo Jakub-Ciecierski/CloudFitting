@@ -77,6 +77,7 @@ public slots:
     void startFitting();
 
 signals:
+    void showInfoBox(std::string, std::string);
 };
 
 #endif // GLWIDGET_H

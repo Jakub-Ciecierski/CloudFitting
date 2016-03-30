@@ -4,10 +4,12 @@
 #include <QtCore>
 #include <fitting/fitting_workshop.h>
 
+
 class FitterThread : public QThread
 {
 private:
     FittingWorkshop* fittingWorkshop;
+
 public:
     int experimentIndex;
 

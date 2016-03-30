@@ -24,8 +24,10 @@ public:
     Ui::MainWindow* getUI();
 
     bool showQuestionBox(std::string title, std::string text);
-    void showInfoBox(std::string title, std::string text);
     std::string showInputBox(std::string title, std::string text);
+
+public slots:
+    void showInfoBox(std::string title, std::string text);
 
 private:
     explicit EditorWindow(QWidget *parent = 0);
